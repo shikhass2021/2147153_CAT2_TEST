@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>STUDENT DATA DISPLAY</h1>
+    <p id="demo"></p>
+
+    <script>
+        var x, i, xmlDoc;
+        var txt = "";
+        var text = "<christuniversity>" +
+            "<name>SHIKHA</name>" +
+            "<phone>990345666</phone>" +
+            "<univesity>2005</university>" +
+            "<email>2005</email>" +
+            "</christuniversity>";
+
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(text, "text/xml");
+
+        // documentElement always represents the root node
+        x = xmlDoc.documentElement.childNodes;
+        for (i = 0; i < x.length; i++) {
+            txt += x[i].nodeName + ": " + x[i].childNodes[0].nodeValue + "<br>";
+        }
+        document.getElementById("demo").innerHTML = txt;
+    </script>
+
+</body>
+
+</html>
